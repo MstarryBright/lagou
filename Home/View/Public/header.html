@@ -1,0 +1,47 @@
+<!-- public header -->
+<div id="header">
+    <div class="wrapper">
+        <a class="logo" href="{:U('/')}">
+            <img width="150" height="43" alt="拉勾招聘-专注互联网招聘" src="__PUBLIC__/Home/style/images/logo.png">
+        </a>
+        <ul id="navheader" class="reset">
+            <li><a href="{:U('Index/index')}">首页</a></li>
+            <li><a href="{:U('Com/index')}">公司</a></li>
+            <li><a target="_blank" href="{:U('Yipai/index')}">一拍</a></li>
+            <li><a rel="nofollow" href="{:U('Subscribe/person')}">我的简历</a></li>  
+            <!-- <li><a rel="nofollow" href="create.html">发布职位</a></li> -->
+        </ul>
+        <empty name="Think.session.admin_user"> 
+            <div style="float:right;height:50px;font-size:20px;color:#999;diplay:inline;margin-top:-5px;">
+              <h3>
+                <a href="{:U('Login/index')}">登陆</a>
+                <a href="{:U('Register/index')}">注册</a>
+              </h3>
+             
+            </div>  
+            
+        <else/>
+            <dl class="collapsible_menu">
+              <dt>
+                  <span>{$Think.session.admin_user}&nbsp;</span> 
+                  <span class="red" id="noticeDot-1"></span><i></i>
+              </dt>
+              <!-- <dd style="display: none;">
+                  <a href="{:U('Position/getPosition')}">我发布的职位</a>
+              </dd> -->
+              <dd style="display: none;">
+                  <a href="{:U('Position/getApply')}">我收到的简历</a>
+              </dd>
+              <dd class="btm" style="display: none;">
+                  <a href="{:U('Com/Cominfo')}">我的公司主页</a>
+              </dd>
+              <dd style="display: none;">
+                  <a href="{:U('Subscribe/send')}">投递箱</a>
+              </dd>
+              <dd class="logout" style="display: none;">
+                  <a rel="nofollow" href="{:U('Login/back')}">退出</a>
+              </dd>
+            </dl>
+        </empty>
+    </div>
+</div>

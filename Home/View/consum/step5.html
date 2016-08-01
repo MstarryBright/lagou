@@ -1,0 +1,40 @@
+<extend name="Public/base"/>
+<block name="body">
+    <div id="container">
+        <div class="content_mid">
+            <dl class="c_section c_section_mid">
+                <dt>
+                <h2><em></em>填写公司信息</h2>
+                <a class="c_addjob" href="create.html"><i></i>发布新职位</a>
+                </dt>
+                <dd>
+                    <div class="c_text">背景深、规模大、发展快、氛围好…用优势吸引求职者吧！</div>
+                    <img width="668" height="56" class="c_steps" alt="第五步" src="__PUBLIC__/Home/style/images/step5.png">
+                    <!-- action="http://www.lagou.com/c/saveProfile.json" -->
+                    <form action="{:U('Consum/step6')} " method="post" id="infoForm">
+                        <input type="hidden" name="id" value="{$id}" id="com">
+                        <h3>公司介绍</h3>
+                        <textarea placeholder="请分段详细描述公司简介、企业文化等" name="cintro" id="companyProfile"></textarea>
+
+                        <div class="clear"></div>
+                        <input type="submit" id="step5Submit" value="保存，完成" class="btn_big fr">
+                    </form>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</block>
+<block name="script">
+    <script type="text/javascript">
+        $(function () {
+            did = $("#com").val();
+
+            $("#step5Submit").click(function () {
+                window.location.href = "{:U('Consum/step6')}?id=" + did;
+            });
+        });
+
+
+    </script>
+
+</block>

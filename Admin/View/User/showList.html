@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="__PUBLIC__/Admin/css/base.css" />
+<link rel="stylesheet" href="__PUBLIC__/Admin/css/info-mgt.css" />
+<link rel="stylesheet" href="__PUBLIC__/Admin/css/WdatePicker.css" />
+<title>移动办公自动化系统</title>
+<style type='text/css'>
+	table tr .id{ width:63px; text-align: center;}
+	table tr .name{ width:118px; padding-left:17px;}
+	table tr .nickname{ width:63px; padding-left:17px;}
+	table tr .dept_id{ width:63px; padding-left:13px;}
+	table tr .sex{ width:63px; padding-left:13px;}
+	table tr .birthday{ width:80px; padding-left:13px;}
+	table tr .tel{ width:113px; padding-left:13px;}
+	table tr .email{ width:160px; padding-left:13px;}
+	table tr .addtime{ width:160px; padding-left:13px;}
+	table tr .operate{ padding-left:13px;}
+</style>
+</head>
+
+<body>
+<div class="title"><h2>信息管理</h2></div>
+<div class="table-operate ue-clear">
+    <a href="__CONTROLLER__/add" class="add">添加</a>
+    <a href="javascript:;" id='btndel' class="del">删除</a>
+    <a href="javascript:;" id='btnedit' class="edit">编辑</a>
+    <a href="__CONTROLLER__/charts" class="count">统计</a>
+
+</div>
+<div class="table-box">	<table>
+
+    	<thead>
+        	<tr>
+            	<th class="id">序号</th>
+                <th class="name">姓名</th>
+                <th class="sex">性别</th>
+                <th class="email">邮箱</th>
+                <th class="phone">电话</th>
+				<th class="level">角色</th>
+
+                <th class="operate">选项</th>
+            </tr>
+        </thead>
+        <tbody>
+		<volist name="data" id="vol">
+        	<tr>
+            	<td class="id">{$vol.id}</td>
+                <td class="username">{$vol.username}</td>
+                <td class="sex">
+                <if condition="$vol.sex==1">
+                    男
+                    <else />
+                    女
+                </if>
+                </td>
+				<td class="email">{$vol.email}</td>
+				<td class="phone">{$vol.phone}</td>
+				<td class="level">{$vol.level}</td>
+                <td class="operate">
+                    <input type="checkbox" value="{$vol.id}"/>
+                </td>
+            </tr>
+		</volist>
+        </tbody>
+    </table>
+</div>
+<div class="pagination ue-clear">
+	<div class="pagin-list">
+		{$show}
+	</div>
+	<div class="pxofy">显示第 1 条到 10 条记录，总共{$count}条记录</div>
+</div>
+</body>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/common.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/WdatePicker.js"></script>
+<script type="text/javascript">
+$(".select-title").on("click",function(){
+	$(".select-list").hide();
+	$(this).siblings($(".select-list")).show();
+	return false;
+})
+$(".select-list").on("click","li",function(){
+	var txt = $(this).text();
+	$(this).parent($(".select-list")).siblings($(".select-title")).find("span").text(txt);
+})
+
+// $('.pagination').pagination(100,{
+// 	callback: function(page){
+// 		alert(page);	
+// 	},
+// 	display_msg: true,
+// 	setPageNo: true
+// });
+
+$("tbody").find("tr:odd").css("backgroundColor","#eff6fa");
+
+showRemind('input[type=text], textarea','placeholder');
+//
+$(function(){
+    $('#btndel').on('click', function(){
+        var id = $(':checkbox:checked');//选择  过滤
+        var ids = '';  //1, 2, 3..
+        for(var i=0; i<id.length; ++i){
+            ids = ids + id[i].value + ',';
+        }
+        //取得末尾逗号
+        ids = ids.substring(0, ids.length-1);
+        window.location.href = '__CONTROLLER__/del/ids/' + ids;
+    });
+    $('#btnedit').on('click', function(){
+        var id = $(':checkbox:checked').val();
+        window.location.href = '__CONTROLLER__/edit/id/' + id;
+    });
+})
+
+
+
+</script>
+</html>

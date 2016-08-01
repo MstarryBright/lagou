@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <!-- end 云适配 -->
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>拉勾网</title>
+    <meta name="description" content="{description}">
+    <meta name="keywords" content="keywords">
+
+    <link rel="Shortcut Icon" href="__PUBLIC__/Home/style/css/images/title.png">
+    <script src="__PUBLIC__/Home/style/js/jquery.1.10.1.min.js"></script>
+    <script src="__PUBLIC__/Home/style/css/external.min.css"></script>
+    
+
+    <script src="__PUBLIC__/Home/style/js/jquery.lib.min.js"></script>
+    <script src="__PUBLIC__/Home/style/js/jquery-1.8.2.min.js"></script>
+    
+    <!-- <script src="__STATIC__/plugins/jquery.1.10.1.min.js"></script>-->
+
+    <!--<script type="text/javascript" async="" src="__JS__/conversion.js"></script>-->
+    <!--<script type="text/javascript" src="__JS__/ajaxfileupload.js"></script>-->
+    <!--<script src="__JS__/additional-methods.js" type="text/javascript"></script>-->
+    <!--<script src="__JS__/conv.js" type="text/javascript"></script>-->
+    <!--<script src="__JS__/ajaxCross.json" charset="UTF-8"></script>-->
+    <!--<script src="style/js/Chart.min.js" type="text/javascript"></script>-->
+    <!--<script src="style/js/profile.min.js" type="text/javascript"></script>-->
+
+    <script src="__PUBLIC__/Home/style/js/allmobilize.min.js" charset="utf-8" id="allmobilize"></script>
+    <link href="__PUBLIC__/Home/style/css/style.css" type="text/css" rel="stylesheet">
+    <link href="__PUBLIC__/Home/style/css/external.min.css" type="text/css" rel="stylesheet">
+    <link href="__PUBLIC__/Home/style/css/popup.css" type="text/css" rel="stylesheet">
+    <!--<script src="__JS__/step2.min.js" type="text/javascript"></script>-->
+    <!-- <link rel="stylesheet" href="__CSS__/header.css"/> -->
+
+
+    <!--<script type="text/javascript">-->
+    <!--var youdao_conv_id = 271546; -->
+    <!--</script> -->
+    <!--<script src="style/js/conv.js" type="text/javascript"></script>-->
+</head>
+<body>
+    <include file="Public/header" />
+    <!-- end #header -->
+    <block name="body"></block>
+
+    <include file="Public/footer" />
+</body>
+<block name="script">
+</block>
+<script type="text/javascript">
+    $(function(){
+        $('.collapsible_menu').mouseenter(function(){
+            $(this).children('dd').each(function(){
+                $(this).show();
+            });
+        }).mouseleave(function(){
+            $(this).children('dd').each(function(){
+                $(this).hide();
+            });
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,25 @@
+﻿<extend name="Public/base"/>
+<block name="body">
+    <div id="container">
+
+        <div class="content_mid">
+
+            <!--发布职位成功 -->
+            <dl class="c_section c_section_mid">
+                <dt>
+                <h2><em></em>填写公司信息</h2>
+                </dt>
+                <dd class="c_notice">
+                    <h4>恭喜你，公司信息已填写完善，你可以发布职位啦！</h4>
+                    <a class="greylink" href="__MODULE__/Position/index?id={$id}">发布新职位</a>
+                    <a class="greylink" href="__MODULE__/Com/edit?id={$id}"> 进入我的公司主页</a>
+                </dd>
+            </dl>
+        </div>
+
+        <div class="clear"></div>
+        <input type="hidden" value="" id="resubmitToken">
+        <a rel="nofollow" title="回到顶部" id="backtop"></a>
+    </div><!-- end #container -->
+    </div><!-- end #body -->
+</block>

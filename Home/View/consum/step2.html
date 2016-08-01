@@ -1,0 +1,156 @@
+<extend name="Public/base"/>
+<block name="body">
+    <div id="container">
+        <div class="content_mid">
+            <dl class="c_section c_section_mid">
+                <dt>
+                <h2><em></em>填写公司信息</h2>
+                <a class="c_addjob" href="create.html"><i></i>发布新职位</a>
+                </dt>
+                <dd id="step2Form">
+<<<<<<< .mine
+                    <div class="c_text">
+                        简短明了的标签信息让求职者更加方便检索，更快找到你们！
+                    </div>
+                    <img width="668" height="56" class="c_steps" alt="第二步" src="__IMG__/step2.png">
+                    <h3>已添加标签</h3>
+                    <ul class="reset" id="labels">
+=======
+                        <div class="c_text">
+                            简短明了的标签信息让求职者更加方便检索，更快找到你们！
+                        </div>
+                        <img width="668" height="56" class="c_steps" alt="第二步" src="__PUBLIC__/Home/style/images/step2.png">
+                        <h3>已添加标签</h3>
+                        <ul class="reset" id="labels">
+>>>>>>> .r99
+
+                    </ul>
+                    <input type="text" placeholder="请输入自定义标签" name="label" id="label">
+                    <input type="submit" value="贴上" id="add_label">
+                    <div class="clear"></div>
+                    <div id="box_labels">
+                        <dl>
+                <dt>薪酬激励</dt>
+                <dd>
+                    <ul class="reset">
+                        <li>年终分红</li>
+                        <li>绩效奖金</li>
+                        <li>股票期权</li>
+                        <li>专项奖金</li>
+                        <li>年底双金</li>
+                    </ul>
+                </dd>
+            </dl>
+            <dl>
+                <dt>员工福利</dt>
+                <dd>
+                    <ul class="reset">
+                        <li>五险一金</li>
+                        <li>通讯津贴</li>
+                        <li>交通补助</li>
+                        <li>带薪年假</li>
+                    </ul>
+                </dd>
+            </dl>
+            <dl>
+                <dt>员工关怀</dt>
+                <dd>
+                    <ul class="reset">
+                        <li>免费班车</li>
+                        <li>节日礼物</li>
+                        <li>年度旅游</li>
+                        <li>弹性工作</li>
+                        <li>定期体检</li>
+                        <li>午餐补助</li>
+                    </ul>
+                </dd>
+            </dl>
+            <dl>
+                <dt>其他</dt>
+                <dd>
+                    <ul class="reset">
+                        <li>岗位晋升</li>
+                        <li>技能培训</li>
+                        <li>管理规范</li>
+                        <li>扁平管理</li>
+                        <li>领导好</li>
+                        <li>帅哥多</li>
+                        <li>美女多</li>
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+        <input type="hidden" value="{$id}" id="hidden_in">
+        <input type="hidden" id="companyId" name="companyId" value="25927">
+        <input type="button" value="保存，下一步" id="step2Submit" class="btn_big fr">
+        <a class="btn_cancel fr" href="{:U('Consum/step4')}?id={$id}">跳过</a>
+        </dd>
+        </dl>
+    </div>
+    </div>
+</block>
+<block name="script">
+    <script type="text/javascript">
+        $(function () {
+            //选取已有的标签
+            $(".reset li").each(function () {
+                $(this).click(function () {
+                    $('#labels li:contains(' + $(this).html() + ')').remove();
+                    $(this).css({background: "#129F7E", color: "#fafafa"});
+                    $("<li  style='background:#019875'>" + $(this).html() + "</li>").appendTo('#labels');
+                });
+            });
+            // 添加自定义的标签
+            $("#add_label").click(function () {
+                var label = $("#label").val();
+                $.ajax({
+                    url: '__MODULE__/Consum/check',
+                    type: "post",
+                    data: {'label': label},
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data == 1) {
+                            alert("请输入1-6字的标签");
+                        } else {
+                            $("<li  style='background:#019875'>" + label + "</li>").appendTo('#labels');
+                            $("#label").val("");
+                        }
+                    }
+                });
+            });
+            //把标签传入控制器
+
+
+            sel = "";
+            $("#step2Submit").click(function () {
+                $("#labels li").each(function () {
+
+                    sel += $(this).html() + ",";
+
+
+                });
+                // alert(sel);
+                did = $("#hidden_in").val();
+                $.ajax({
+                    url: "__MODULE__/Consum/chuan?id=" + did,
+                    type: "post",
+                    data: {'clabel': sel},
+                    dataType: 'json',
+                    success: function (data) {
+                        // alert(data);
+                        if (data == 0) {
+                            window.location.href = "{:U('Consum/step4')}?id=" + did;
+                            // alert("yes");
+                        } else {
+                            alert("请选择标签,或点击跳过");
+                        }
+                    }
+
+                });
+            });
+        });
+
+
+    </script>
+
+</block>

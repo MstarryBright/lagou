@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+{/* 公共资源的目录 */}
+<assign name="path" value="__PUBLIC__/Admin"/>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="__PUBLIC__/Admin/images/favicon.ico" type="image/x-icon"/>
+    <title>拉钩勾聘网后台登陆</title>
+    <!-- CSS -->
+
+    <<<<<<< .mine
+    <link rel="stylesheet" href="__PUBLIC__/Admin/css/bootstrap.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/Admin/css/form-elements.css">
+    <link rel="stylesheet" href="__PUBLIC__/Admin/css/style.css">
+    =======
+    <link rel="stylesheet" href="__PUBLIC__/Admin/css/bootstrap.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/Admin/css/form-elements.css">
+    <link rel="stylesheet" href="__PUBLIC__/Admin/css/style2.css">
+    >>>>>>> .r72
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicon and touch icons -->
+    <script>
+        <!-- //点击验证码 更换
+        function fleshVerify(type) {
+            //重载验证码
+            var timenow = new Date().getTime();
+            $('#verifyImg').attr("src", '__URL__/captcha/' + timenow);
+        }
+        //-->
+    </script>
+</head>
+<body>
+<!-- Top content -->
+<div class="top-content">
+    <div class="inner-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4 form-box">
+                    <div class="form-top">
+                        <div class="form-top-left">
+                            <h3>拉勾招聘网</h3>
+                            <p>欢迎进入拉勾招聘网后台登陆 <a href="www.lagou.com">www.lagou.com</a></p>
+                        </div>
+                        <div class="form-top-right">
+                            <i class="fa fa-lock"></i>
+                        </div>
+                    </div>
+                    <div class="form-bottom">
+                        <form role="form" action="__CONTROLLER__/index" method="post" class="login-form">
+                            <div class="form-group">
+                                <label class="sr-only" for="form-username">用户名</label>
+                                <input type="text" name="username" value="" placeholder="用户名"
+                                       class="form-username form-control" id="form-username">
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="form-password">密码</label>
+                                <input type="password" name="password" placeholder="密码"
+                                       class="form-password form-control" value="" id="password">
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="form-password">验证码</label>
+                                <input type="text" name="code" placeholder="验证码" class="col-md-8" id="form-password"
+                                       style="margin-right:10px;">
+                                <!--  <input type="password" name="form-password" placeholder="验证码" class="col-md-4" id="form-password"> -->
+                                <span><img id="verifyImg" SRC="__CONTROLLER__/captcha" onClick="fleshVerify()"
+                                           border="0" alt="点击刷新验证码"
+                                           style="cursor:pointer;width:90px;height:50px;line-height:50px;"
+                                           align="absmiddle"></span>
+                            </div>
+                            <br/>
+                            <span style="color:red">{$errorinfo}</span>
+                            <button type="submit" class="btn">登陆</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Javascript -->
+<script src="__PUBLIC__/Admin/js/jquery-1.11.1.min.js"></script>
+<script src="__PUBLIC__/Admin/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__/Admin/js/jquery.backstretch.min.js"></script>
+<script src="__PUBLIC__/Admin/js/scripts.js"></script>
+<!--[if lt IE 10]>
+<script src="assets/js/placeholder.js"></script>
+<![endif]-->
+<script>
+
+</script>
+
+
+</body>
+
+</html>

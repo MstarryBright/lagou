@@ -1,0 +1,421 @@
+<<<<<<< .mine
+<!DOCTYPE HTML>
+<html>
+<head>
+    </script>
+    <script type="text/javascript" async="" src="__PUBLIC__/Home/style/js/conversion.js"></script>
+    <script src="__PUBLIC__/Home/style/js/allmobilize.min.js" charset="utf-8" id="allmobilize"></script>
+    <style type="text/css"></style>
+    <meta content="no-siteapp" http-equiv="Cache-Control">
+    <link media="handheld" rel="alternate">
+    <!-- end 云适配 -->
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>基本信息-招聘服务-拉勾网-最专业的互联网招聘平台</title>
+    <link href="__PUBLIC__/Home/images/favicon.ico" rel="Shortcut Icon">
+    <link href="__PUBLIC__/Home/style/css/style.css" type="text/css" rel="stylesheet">
+    <link href="__PUBLIC__/Home/style/css/external.min.css" type="text/css" rel="stylesheet">
+    <link href="__PUBLIC__/Home/style/css/popup.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="__PUBLIC__/Home/style/js/jquery.1.10.1.min.js"></script>
+    <script src="__PUBLIC__/Home/style/js/jquery.lib.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="__PUBLIC__/Home/style/js/ajaxfileupload.js"></script>
+    <script src="__PUBLIC__/Home/style/js/additional-methods.js" type="text/javascript"></script>
+    <!--[if lte IE 8]>
+    <script type="text/javascript" src="__PUBLIC__/Home/style/js/excanvas.js"></script>
+    <![endif]-->
+    <script src="__PUBLIC__/Home/style/js/conv.js" type="text/javascript"></script>
+    <script src="__PUBLIC__/Home/style/js/ajaxCross.json" charset="UTF-8"></script>
+</head>
+<!-- <script>
+     $('#stepBtn').on('click',function () {
+         window.location.href = "__CONTROLLER__/step1/";
+     })
+ </script>-->
+<body>
+<div id="body">
+    <div id="header">
+        <div class="wrapper">
+            <a class="logo" href="index.html">
+                <img width="229" height="43" alt="拉勾招聘-专注互联网招聘" src="__PUBLIC__/Home/style/images/logo.png">
+            </a>
+            <ul id="navheader" class="reset">
+                <li><a href="index.html">首页</a></li>
+                <li class="current"><a href="companylist.html">公司</a></li>
+                <li><a target="_blank" href="">论坛</a></li>
+                <li>
+                    <a rel="nofollow" href="">简历管理</a>
+                </li>
+                <li><a rel="nofollow" href="create.html">发布职位</a></li>
+            </ul>
+            <dl class="collapsible_menu">
+                <dt>
+                    <span>jason&nbsp;</span>
+                    <span class="red dn" id="noticeDot-1"></span>
+                    <i></i>
+                </dt>
+                <dd><a href="positions.html">我发布的职位</a></dd>
+                <dd><a href="positions.html">我收到的简历</a></dd>
+                <dd class="btm"><a href="myhome.html">我的公司主页</a></dd>
+                <dd><a href="jianli.html">我要找工作</a></dd>
+                <dd><a href="accountBind.html">帐号设置</a></dd>
+                <dd class="logout"><a rel="nofollow" href="login.html">退出</a></dd>
+            </dl>
+        </div>
+        <block name="script">
+            <!-- $("#box_industry").css("display","block"); -->
+            <script type="text/javascript">
+                $(function () {
+                    //判断公司名可用不;
+                    $("#namecheck").blur(function () {
+                        namec = $(this).val();
+                        $.ajax({
+                            url: "{:U('Consum/namecheck')}",
+                            type: 'post',
+                            data: {"cname": namec},
+                            success: function (data) {
+                                if (data == 0) {
+                                    // alert("用户名存在");
+                                    $("#namecheck").next().remove("span");
+                                    $("#namecheck").after("<span style='color:pink'>公司已被注册</span>");
+                                } else {
+                                    $("#namecheck").next().remove("span");
+
+                                }
+                                // alert(data);
+                            }
+
+                        });
+                    });
+                    //点击提交如果用户名存在禁止提交
+                    $("#stepBtn").click(function () {
+                        namec = $("#namecheck").val();
+                        $.ajax({
+                            url: "{:U('Consum/namecheck')}",
+                            type: 'post',
+                            data: {"cname": namec},
+                            success: function (data) {
+                                if (data == 0) {
+                                    window.location.reload();
+                                    alert("用户名存在");
+
+                                }
+                            }
+
+                        });
+                    });
+                    //行业领域
+                    $("#select_industry").click(function () {
+                        if ($("#box_industry").css("display") == "none") {
+                            $("#box_industry").show();
+                            // 遍历li标签选择值
+                            $("#reset li").each(function () {
+                                $(this).click(function () {
+                                    ob = $(this);
+                                    $(this).css("background", "#93B7BB").siblings().css("background", "#FAFAFA");
+
+                                    $("#select_scale_hidden").val($(ob).html());
+
+                                    $("#select_industry").val($(ob).html());
+
+                                });
+                            });
+                        } else {
+                            $("#box_industry").hide();
+
+                        }
+
+                    });
+                    //公司规模
+                    $("#select_scale").click(function () {
+                        if ($("#box_scale").css("display") == "none") {
+                            $("#box_scale").show();
+                            // 遍历li标签选择值
+                            $("#reset1 li").each(function () {
+                                $(this).click(function () {
+                                    ac = $(this);
+                                    $(this).css("background", "#93B7BB").siblings().css("background", "#FAFAFA");
+                                    // alert($(ob).html());
+                                    $("#select_scale").val($(ac).html());
+                                    $("#select_industry_hidden").val($(ac).html());
+                                });
+                            });
+                        } else {
+                            $("#box_scale").hide();
+
+                        }
+
+                    });
+                    // 公司规模-----------End---------
+                    //发展阶段
+                    $("#guimo_ul li").each(function () {
+                        $(this).click(function () {
+                            $(this).css("background", "#93B7BB").siblings().css("background", "white");
+
+                            $("#s_radio_hidden").val($(this).html());
+                        });
+                    });
+
+                });
+            </script>
+        </block>
+    </div><!-- end #body -->
+=======
+<extend name="Public/base"/>
+<block name="body">
+>>>>>>> .r99
+    <div id="container">
+        <div style="" id="stepTip">
+            <a></a>
+            <img width="803" height="59" src="__PUBLIC__/Home/style/images/tiponce.jpg">
+        </div>
+        <div class="content_mid">
+            <dl class="c_section c_section_mid">
+                <dt>
+                <h2><em></em>填写公司信息</h2>
+                </dt>
+                <dd>
+                    <form id="stepForm" action="{:U('Consum/step1')} " method="post" enctype="multipart/form-data">
+                        <div class="c_text_1">基本信息为必填项，是求职者加速了解公司的窗口，认真填写吧！</div>
+                        <img width="668" height="56" class="c_steps" alt="第一步"
+                             src="__PUBLIC__/Home/style/images/step1.png">
+
+                        <h3>公司全称</h3>
+                        <input type="hidden" value="{$time}" name="ctime">
+                        <input type="hidden" value="{$userid}" name="cuid">
+                        <input type="text" placeholder="请输入公司全称" value="" name="cname" id="namecheck" class="valid">
+                        <h3>公司简称</h3> <!--非必填-->
+                        <input type="text" placeholder="请输入公司简称，如:拉勾" value="" name="cename" id="name" class="valid">
+
+                        <h3>上传公司LOGO</h3> <!--非必填改必填-->
+
+
+                        <input type="file" class="valid" name="clogo">
+
+
+                        <h3>公司网址</h3>
+                        <input type="text" placeholder="请输入公司网址" value="" name="csite" id="website">
+
+                        <h3>所在城市</h3>
+                        <input type="text" placeholder="请输入工作城市，如：北京" name="cadd" id="city">
+
+                        <h3>行业领域</h3>
+                        <div>
+                            <input type="hidden" value="" name="csize" id="select_industry_hidden">
+                            <input type="button" value="请选择行业领域" name="select_industry" id="select_industry"
+                                   class="select">
+                            <div class="dn" id="box_industry" style="display: none;">
+                                <ul class="reset" id="reset">
+                                    <li>移动互联网</li>
+                                    <li>电子商务</li>
+                                    <li>社交</li>
+                                    <li>企业服务</li>
+                                    <li>O2O</li>
+                                    <li>教育</li>
+                                    <li>文化艺术</li>
+                                    <li>游戏</li>
+                                    <li>在线旅游</li>
+                                    <li>金融互联网</li>
+                                    <!-- <li>健康医疗</li>
+                                    <li>生活服务</li>
+                                    <li>硬件</li>
+                                    <li>搜索</li>
+                                    <li>安全</li>
+                                    <li>运动体育</li>
+                                    <li>云计算\大数据</li>
+                                    <li>移动广告</li>
+                                    <li>社会化营销</li>
+                                    <li>视频多媒体</li>
+                                    <li>媒体</li>
+                                    <li>智能家居</li>
+                                    <li>智能电视</li>
+                                    <li>分类信息</li>
+                                    <li>招聘</li> -->
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h3>公司规模</h3>
+                        <div>
+                            <input type="hidden" value="" name="ctype" id="select_scale_hidden">
+                            <input type="button" value="请选择公司规模" id="select_scale" class="select">
+                            <div class="dn" id="box_scale" style="display: none;">
+                                <ul class="reset" id="reset1">
+                                    <li>少于15人</li>
+                                    <li>15-50人</li>
+                                    <li>50-150人</li>
+                                    <li>2000人以上</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h3>发展阶段</h3>
+                        <div>
+                            <input type="hidden" id="s_radio_hidden" name="cstep" value="">
+                            <ul class="s_radio clearfix s_radio_ex" id="guimo_ul">
+                                <li>未融资</li>
+                                <li>天使轮</li>
+                                <li>A轮</li>
+                                <li>B轮</li>
+                                <li>C轮</li>
+                                <li>D轮及以上</li>
+                                <li>上市公司</li>
+                            </ul>
+                        </div>
+
+
+                        <h3>一句话介绍</h3>
+                        <input type="text" placeholder="一句话概括公司亮点，如公司愿景、领导团队等，限50字" maxlength="50" name="cbrief"
+                               id="temptation">
+
+                        <input type="submit" value="保存，下一步" id="stepBtn" class="btn_big fr">
+
+                    </form>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</block>
+<block name="script">
+    <!-- $("#box_industry").css("display","block"); -->
+    <script type="text/javascript">
+        $(function(){
+            //判断公司名可用不;
+            $("#namecheck").blur(function(){
+                namec=$(this).val();
+                $.ajax({
+                    url:"{:U('Consum/namecheck')}",
+                    type:'post',
+                    data:{"cname":namec},
+                    success:function(data){
+                        if(data==0){
+                            // alert("用户名存在");
+                            $("#namecheck").next().remove("span");
+                            $("#namecheck").after("<span style='color:pink'>公司已被注册</span>");
+                        }else{
+                            $("#namecheck").next().remove("span");
+
+<<<<<<< .mine
+    <div id="footer">
+        <div class="wrapper">
+            <a rel="nofollow" target="_blank" href="about.html">联系我们</a>
+            <a target="_blank" href="http://www.lagou.com/af/zhaopin.html">互联网公司导航</a>
+            <a rel="nofollow" target="_blank" href="http://e.weibo.com/lagou720">拉勾微博</a>
+            <a rel="nofollow" href="javascript:void(0)" class="footer_qr">拉勾微信<i></i></a>
+            <div class="copyright">&copy;2013-2014 Lagou <a
+                    href="http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action" target="_blank">京ICP备14023790号-2</a>
+            </div>
+        </div>
+    </div>
+=======
+                        }
+                        // alert(data);
+                    }
+>>>>>>> .r99
+
+                });
+            });
+            //点击提交如果用户名存在禁止提交
+            $("#stepBtn").click(function(){
+                namec=$("#namecheck").val();
+                $.ajax({
+                    url:"{:U('Consum/namecheck')}",
+                    type:'post',
+                    data:{"cname":namec},
+                    success:function(data){
+                        if(data==0){
+                            window.location.reload();
+                            alert("用户名存在");
+
+                        }
+                    }
+
+<<<<<<< .mine
+    <div id="cboxOverlay" style="display: none;"></div>
+    <div id="colorbox" class="" role="dialog" tabindex="-1" style="display: none;">
+        <div id="cboxWrapper">
+            <div>
+                <div id="cboxTopLeft" style="float: left;"></div>
+                <div id="cboxTopCenter" style="float: left;"></div>
+                <div id="cboxTopRight" style="float: left;"></div>
+            </div>
+            <div style="clear: left;">
+                <div id="cboxMiddleLeft" style="float: left;"></div>
+                <div id="cboxContent" style="float: left;">
+                    <div id="cboxTitle" style="float: left;"></div>
+                    <div id="cboxCurrent" style="float: left;"></div>
+                    <button type="button" id="cboxPrevious"></button>
+                    <button type="button" id="cboxNext"></button>
+                    <button id="cboxSlideshow"></button>
+                    <div id="cboxLoadingOverlay" style="float: left;"></div>
+                    <div id="cboxLoadingGraphic" style="float: left;"></div>
+                </div>
+                <div id="cboxMiddleRight" style="float: left;"></div>
+            </div>
+            <div style="clear: left;">
+                <div id="cboxBottomLeft" style="float: left;"></div>
+                <div id="cboxBottomCenter" style="float: left;"></div>
+                <div id="cboxBottomRight" style="float: left;"></div>
+            </div>
+        </div>
+        <div style="position: absolute; width: 9999px; visibility: hidden; display: none;"></div>
+    </div>
+=======
+                });
+            });
+            //行业领域
+            $("#select_industry").click(function(){
+                if($("#box_industry").css("display")=="none"){
+                    $("#box_industry").show();
+                    // 遍历li标签选择值
+                    $("#reset li").each(function(){
+                        $(this).click(function(){
+                            ob =$(this);
+                            $(this).css("background","#93B7BB").siblings().css("background","#FAFAFA");
+>>>>>>> .r99
+
+                            $("#select_scale_hidden").val($(ob).html());
+
+                            $("#select_industry").val($(ob).html());
+
+                        });
+                    });
+                }else{
+                    $("#box_industry").hide();
+
+                }
+
+            });
+            //公司规模
+            $("#select_scale").click(function(){
+                if($("#box_scale").css("display")=="none"){
+                    $("#box_scale").show();
+                    // 遍历li标签选择值
+                    $("#reset1 li").each(function(){
+                        $(this).click(function(){
+                            ac=$(this);
+                            $(this).css("background","#93B7BB").siblings().css("background","#FAFAFA");
+                            // alert($(ob).html());
+                            $("#select_scale").val($(ac).html());
+                            $("#select_industry_hidden").val($(ac).html());
+                        });
+                    });
+                }else{
+                    $("#box_scale").hide();
+
+                }
+
+            });
+            // 公司规模-----------End---------
+            //发展阶段
+            $("#guimo_ul li").each(function(){
+                $(this).click(function(){
+                    $(this).css("background","#93B7BB").siblings().css("background","white");
+
+                    $("#s_radio_hidden").val($(this).html());
+                });
+            });
+
+        });
+
+
+    </script>
+</block>
