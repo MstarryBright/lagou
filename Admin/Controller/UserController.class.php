@@ -70,8 +70,6 @@ class UserController extends Controller
 
     }
 
-<<<<<<< .mine
-=======
     //删除
     public function del()
     {
@@ -87,9 +85,6 @@ class UserController extends Controller
 
 
 
-
-
->>>>>>> .r100
 }
 
 

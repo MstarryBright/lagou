@@ -12,6 +12,7 @@ class CommontController extends Controller
         $adid = session('adid');
         //empty方法只接受变量,不接受返回值
         if (empty($adid)) {
+
             $url = U('Public/login');
             echo "<script>top.location.href='$url';</script>";
         }
@@ -32,7 +33,7 @@ class CommontController extends Controller
             //RABC比较  ...
             if (!in_array($ac, $auth) && !in_array($controller.'/*', $auth)) {
                 //提示 跳转
-                $this->error('正在跳转...', U('Index/index'), 2);die;
+                $this->error('正在跳转...', U('Index/index'), 2);
             }
         }
 

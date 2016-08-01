@@ -22,7 +22,7 @@ class PublicController extends Controller
         if (!$verify->check($_POST['code'])) {
             $this->assign('errorinfo', '验证码有误');
             $this->display('login');   //跳转
-        }
+//        }
         //接收数据
         $post = I('post.');
         //实例化
@@ -32,16 +32,9 @@ class PublicController extends Controller
         //判断
         if ($data) {
             #存在对应的用户，用户信息的持久化，并且跳转到后台的首页
-            <<<<<<< .
-            mine
             session('adid', $data['id']);#用户id信息
             session('adame', $data['username']);#用户名信息
             session('level', $data['level']);#用户组信息
-=======
-            session('adid', $data['id']);#用户id信息
-            session('adname', $data['username']);#用户名信息
-            session('level', $data['level']);#用户组信息
->>>>>>> .r72
             #跳转
             $this->success('登录成功', U('Index/index'), 2);
         } else {

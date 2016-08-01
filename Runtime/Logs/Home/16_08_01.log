@@ -1,0 +1,79 @@
+[ 2016-08-01T11:57:21+08:00 ] 127.0.0.1 /index.php/Home/Pros/index/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000053s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000986s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000665s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000827s ]
+SQL: SHOW COLUMNS FROM `la_gcate` [ RunTime:0.0028s ]
+SQL: SELECT * FROM `la_gcate`  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `la_pcate` [ RunTime:0.0018s ]
+SQL: SELECT * FROM `la_pcate` WHERE ( pid =1 )  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `la_scate` [ RunTime:0.0018s ]
+SQL: SELECT * FROM `la_scate` WHERE ( sid =1 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `la_scate` WHERE ( sid =2 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `la_scate` WHERE ( sid =3 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `la_scate` WHERE ( sid =4 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `la_scate` WHERE ( sid =5 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `la_scate` WHERE ( sid =6 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `la_scate` WHERE ( sid =7 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `la_pcate` WHERE ( pid =2 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `la_scate` WHERE ( sid =8 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `la_scate` WHERE ( sid =9 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `la_scate` WHERE ( sid =10 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `la_scate` WHERE ( sid =24 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `la_pcate` WHERE ( pid =3 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `la_scate` WHERE ( sid =11 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `la_scate` WHERE ( sid =12 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `la_scate` WHERE ( sid =13 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `la_scate` WHERE ( sid =14 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `la_pcate` WHERE ( pid =4 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `la_scate` WHERE ( sid =15 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `la_scate` WHERE ( sid =16 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `la_scate` WHERE ( sid =17 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `la_scate` WHERE ( sid =18 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `la_pcate` WHERE ( pid =5 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `la_scate` WHERE ( sid =22 )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `la_scate` WHERE ( sid =23 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `la_scate` WHERE ( sid =25 )  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `la_scate` WHERE ( sid =26 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `la_scate` WHERE ( sid =27 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `la_scate` WHERE ( sid =28 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `la_pcate` WHERE ( pid =6 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `la_scate` WHERE ( sid =19 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `la_scate` WHERE ( sid =20 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `la_scate` WHERE ( sid =29 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `la_scate` WHERE ( sid =30 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `la_pcate` WHERE ( pid =7 )  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `la_scate` WHERE ( sid =21 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `la_scate` WHERE ( sid =31 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `la_scate` WHERE ( sid =32 )  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `la_scate` WHERE ( sid =33 )  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `la_company` [ RunTime:0.0018s ]
+SQL: SHOW COLUMNS FROM `la_position` [ RunTime:0.0031s ]
+SQL: SELECT l1. salary,`experience`,`education`,`lure`,`paddr`,`end_time`,l2.cname,`ctype`,`cstep`,`csize` FROM la_position as l1,la_company as l2 WHERE ( l1.cid = l2.id ) LIMIT 5   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000202s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000345s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020420s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020547s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000877s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001034s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001442s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001671s ]
+
+[ 2016-08-01T11:57:24+08:00 ] 127.0.0.1 /index.php/Home/Userinfo/userinfo.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000629s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000871s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001063s ]
+ERR: 1146:Table 'lagou.la_buser' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `la_buser`
+ERR: 1146:Table 'lagou.la_buser' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `la_buser`
+
